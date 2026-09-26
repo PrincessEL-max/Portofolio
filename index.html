@@ -341,6 +341,125 @@
         </div>
       </article>
 
+      <article class="project">
+        <div class="project__media">
+          <svg viewBox="0 0 400 160" role="img" aria-label="Grafik akurasi klasifikasi gas per batch tanpa koreksi drift: turun dari 93,7 persen di batch 1 ke titik terendah 23,9 persen di batch 5, sebelum berfluktuasi sampai 41,4 persen di batch 10">
+            <g fill="var(--bar)">
+              <rect x="24"  y="30.0"  width="28" height="110.0"/>
+              <rect x="60"  y="50.5"  width="28" height="89.5"/>
+              <rect x="96"  y="82.0"  width="28" height="58.0"/>
+              <rect x="132" y="100.7" width="28" height="39.3"/>
+              <rect x="168" y="111.9" width="28" height="28.1" fill="var(--ink)"/>
+              <rect x="204" y="100.4" width="28" height="39.6"/>
+              <rect x="240" y="100.9" width="28" height="39.1"/>
+              <rect x="276" y="110.1" width="28" height="29.9"/>
+              <rect x="312" y="99.7"  width="28" height="40.3"/>
+              <rect x="348" y="91.4"  width="28" height="48.6"/>
+            </g>
+            <g font-family="var(--font-body)" font-size="9" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="38"  y="152">1</text>
+              <text x="74"  y="152">2</text>
+              <text x="110" y="152">3</text>
+              <text x="146" y="152">4</text>
+              <text x="182" y="152">5</text>
+              <text x="218" y="152">6</text>
+              <text x="254" y="152">7</text>
+              <text x="290" y="152">8</text>
+              <text x="326" y="152">9</text>
+              <text x="362" y="152">10</text>
+            </g>
+          </svg>
+          <p class="chart-note">Fig. 4 — akurasi klasifikasi gas per batch (proxy waktu) tanpa koreksi drift: turun tajam lalu berfluktuasi, bukan menurun monoton.</p>
+        </div>
+
+        <div class="project__body">
+          <h3>Kompensasi drift sensor gas dengan domain adaptation</h3>
+          <p class="oneliner">Sensor gas metal-oxide melenceng seiring waktu — diuji berlapis metode koreksi (Component Correction, CORAL, kalibrasi regresi), dengan tiap kegagalan didiagnosis sampai akar penyebabnya, bukan langsung diganti metode lain.</p>
+          <p class="tools-line"><b>Tools:</b> Python, scikit-learn, Gaussian Process, domain adaptation, Streamlit</p>
+
+          <details>
+            <summary>Detail teknis</summary>
+            <ul>
+              <li>Drift signifikan terdeteksi (113 dari 128 fitur, uji Kolmogorov-Smirnov) menurunkan akurasi klasifikasi gas dari 93,7% ke serendah 23,9%; CORAL memperbaiki ke rata-rata 57,7%, sementara Component Correction (metode klasik) justru tidak membantu</li>
+            </ul>
+
+            <svg viewBox="0 0 400 165" role="img" aria-label="Grafik dua kriteria rekomendasi kalibrasi ulang sensor: berbasis confidence interval sekitar 41 bulan, berbasis deviasi aktual sekitar 7,6 bulan" style="width:100%;height:auto;display:block;margin:14px 0 4px;">
+              <g fill="var(--bar)">
+                <rect x="110" y="17"    width="70" height="123"/>
+                <rect x="220" y="117.2" width="70" height="22.8" fill="var(--ink)"/>
+              </g>
+              <g font-family="var(--font-data)" font-size="11" font-weight="500" fill="var(--ink)" text-anchor="middle">
+                <text x="145" y="13">~41 bulan</text>
+                <text x="255" y="113">~7,6 bulan</text>
+              </g>
+              <g font-family="var(--font-body)" font-size="9.5" fill="var(--ink-soft)" text-anchor="middle">
+                <text x="145" y="152">Berbasis CI</text>
+                <text x="255" y="152">Berbasis deviasi</text>
+              </g>
+            </svg>
+            <p class="chart-note">Fig. 5 — dua kriteria kalibrasi ulang berbeda 5,4×; mengandalkan confidence interval saja bisa membiarkan sensor menyimpang jauh tanpa terdeteksi.</p>
+
+            <ul>
+              <li>Task kalibrasi (regresi konsentrasi) ternyata beda kebutuhan dari klasifikasi — CORAL yang berhasil untuk klasifikasi justru merusak performa 4 dari 6 gas saat diterapkan ke regresi, dengan dua mekanisme kegagalan berbeda (keterbatasan rentang data vs distorsi oleh koreksi) yang didiagnosis terpisah</li>
+              <li>Model final: Random Forest dengan kekuatan koreksi CORAL dipilih otomatis per gas lewat validasi, bukan diterapkan seragam ke semua gas</li>
+            </ul>
+          </details>
+
+          <div class="project__links">
+            <a href="https://github.com/PrincessEL-max/Drift-Sensor">GitHub</a>
+            <a href="https://drift-sensor.streamlit.app/">Live demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project--reverse">
+        <div class="project__media">
+          <svg viewBox="0 0 300 160" role="img" aria-label="Grafik PR-AUC empat pendekatan deteksi risiko kredit: Logistic Regression 0,364, Random Forest 0,346, Random Forest dengan SMOTE 0,267, XGBoost setelah tuning 0,407 tertinggi">
+            <g fill="var(--bar)">
+              <rect x="20"  y="29.7" width="50" height="110.3"/>
+              <rect x="95"  y="35.2" width="50" height="104.8"/>
+              <rect x="170" y="59.1" width="50" height="80.9"/>
+              <rect x="245" y="16.7" width="50" height="123.3" fill="var(--ink)"/>
+            </g>
+            <g font-family="var(--font-data)" font-size="10.5" font-weight="500" fill="var(--ink)" text-anchor="middle">
+              <text x="45"  y="26">0.364</text>
+              <text x="120" y="31.5">0.346</text>
+              <text x="195" y="55.4">0.267</text>
+              <text x="270" y="13">0.407</text>
+            </g>
+            <g font-family="var(--font-body)" font-size="9.5" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="45"  y="152">LR</text>
+              <text x="120" y="152">RF</text>
+              <text x="195" y="152">SMOTE</text>
+              <text x="270" y="152">XGBoost</text>
+            </g>
+          </svg>
+          <p class="chart-note">Fig. 6 — PR-AUC empat pendekatan; SMOTE justru paling rendah, XGBoost menang hanya setelah tuning.</p>
+        </div>
+
+        <div class="project__body">
+          <h3>Prediksi risiko kredit &amp; kalibrasi threshold berbasis cost</h3>
+          <p class="oneliner">150.000 nasabah, 6,68% gagal bayar — dibangun pipeline dari EDA yang membongkar data rusak tersembunyi sampai model yang threshold-nya dioptimasi berdasarkan biaya bisnis, bukan default 0,5.</p>
+          <p class="tools-line"><b>Tools:</b> Python, scikit-learn, XGBoost, SHAP, Streamlit</p>
+
+          <details>
+            <summary>Detail teknis</summary>
+            <ul>
+              <li>EDA menemukan DebtRatio "tercampur" dua populasi — bermakna wajar saat income tercatat (median 0,29), meledak tak masuk akal saat income kosong (median 1.159; 93% dari kasus ekstrem berasal dari baris ini)</li>
+              <li>Model dummy yang selalu menebak "aman" dapat akurasi 93,3%, nyaris menyamai Random Forest asli (93,6%) — recall cuma 18%, membuktikan accuracy menyesatkan untuk data 6,68% positif</li>
+              <li>SMOTE ternyata underperform dibanding class weighting sederhana; XGBoost menang hanya setelah hyperparameter tuning (StratifiedKFold)</li>
+              <li>SHAP mengungkap fitur buatan sendiri (extreme_delinquency_flag) jadi redundan, dan status income kosong justru menurunkan risiko prediksi — dikonfirmasi nyata di data (5,6% vs 7,0% tingkat gagal bayar), terkait usia nasabah</li>
+              <li>Threshold dioptimasi berbasis cost matrix (rasio 5:1) — hasilnya 0,74, bukan 0,5 default, mengurangi total cost 19,3%</li>
+            </ul>
+          </details>
+
+          <div class="project__links">
+            <a href="https://github.com/PrincessEL-max/CreditRisk">GitHub</a>
+            <a href="https://creditrisk-hafiz.streamlit.app/">Live demo</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
 
