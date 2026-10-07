@@ -1,3 +1,6 @@
+</body>
+</html>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -157,7 +160,7 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <h1>Lebih tertarik nyari kebenaran di data, daripada bikin model kelihatan bagus.</h1>
+      <h1>Mahasiswa fisika yang suka ngulik data sampai ketemu jawabannya.</h1>
       <p>Mahasiswa Fisika tingkat akhir di Universitas Negeri Jakarta, sekarang fokus di analisis dan sains data. Terbuka untuk peran data analyst atau magang data science.</p>
       <div class="cta-row">
         <a href="#proyek">Lihat proyek</a>
@@ -170,8 +173,8 @@
   <section id="tentang">
     <div class="wrap">
       <div class="section-head"><h2>Tentang</h2></div>
-      <p>Saya mahasiswa Fisika tingkat akhir di Universitas Negeri Jakarta, peminatan Fisika Instrumentasi — latar belakang yang membiasakan saya kerja presisi: ukur dulu, baru simpulkan. Saat ini saya fokus membangun kemampuan analisis dan sains data, lewat dua proyek utama yang bisa dilihat di bawah.</p>
-      <p class="skill-line"><b>Hard skill:</b> Python, SQL, analisis data eksploratif (EDA), pemodelan prediktif, visualisasi data, analisis statistik, data cleaning &amp; preprocessing, machine learning</p>
+      <p>Saya mahasiswa Fisika tingkat akhir di Universitas Negeri Jakarta, peminatan Fisika Instrumentasi. Di sana saya terbiasa mengukur dulu sebelum menyimpulkan, dan kebiasaan itu saya bawa ke analisis data. Sekarang saya sedang belajar analisis dan sains data lewat lima proyek di bawah, dari kualitas udara Jakarta sampai kualitas internet seluler.</p>
+      <p class="skill-line"><b>Hard skill:</b> Python, SQL (termasuk BigQuery), analisis data eksploratif (EDA), pemodelan prediktif, visualisasi data (termasuk Tableau), analisis statistik, analisis geospasial, data cleaning &amp; preprocessing, machine learning, Git &amp; GitHub</p>
       <p class="skill-line"><b>Soft skill:</b> berpikir analitis, pemecahan masalah, berpikir kritis, komunikasi data, ketelitian tinggi, rasa ingin tahu</p>
     </div>
   </section>
@@ -205,6 +208,71 @@
     <div class="wrap">
       <div class="section-head"><h2>Proyek</h2></div>
 
+      <article class="project project--reverse">
+        <div class="project__media">
+          <svg viewBox="0 0 400 176" role="img" aria-label="Grafik kecepatan unduh seluler tujuh daerah prioritas inti dibanding median 514 kabupaten/kota sebesar 44,4 Mbps: Nias Selatan 27,7, Timor Tengah Selatan 30,0, Agam 31,8, Manggarai 34,1, Padang Pariaman 37,0, Kota Palu 41,2, Magelang 44,4">
+            <line x1="24" y1="42.3" x2="376" y2="42.3" stroke="var(--line)" stroke-dasharray="3 4"/>
+            <text x="26" y="37.3" font-family="var(--font-data)" font-size="8" fill="var(--ink-soft)">median 44.4</text>
+            <g fill="var(--bar)">
+              <rect x="24" y="79.2" width="36" height="60.8" fill="var(--ink)"/>
+              <rect x="74" y="73.9" width="36" height="66.1"/>
+              <rect x="124" y="70.0" width="36" height="70.0"/>
+              <rect x="174" y="65.0" width="36" height="75.0"/>
+              <rect x="224" y="58.6" width="36" height="81.4"/>
+              <rect x="274" y="49.3" width="36" height="90.7"/>
+              <rect x="324" y="42.4" width="36" height="97.6"/>
+            </g>
+            <g font-family="var(--font-data)" font-size="10" font-weight="500" fill="var(--ink)" text-anchor="middle">
+              <text x="42" y="75.2">27.7</text>
+              <text x="92" y="69.9">30.0</text>
+              <text x="142" y="66.0">31.8</text>
+              <text x="192" y="61.0">34.1</text>
+              <text x="242" y="54.6">37.0</text>
+              <text x="292" y="45.3">41.2</text>
+              <text x="342" y="38.4">44.4</text>
+            </g>
+            <g font-family="var(--font-body)" font-size="8.5" fill="var(--ink-soft)" text-anchor="middle">
+              <text x="42" y="151">Nias</text>
+              <text x="42" y="160">Selatan</text>
+              <text x="92" y="151">Timor</text>
+              <text x="92" y="160">Tengah</text>
+              <text x="92" y="169">Selatan</text>
+              <text x="142" y="151">Agam</text>
+              <text x="192" y="151">Manggarai</text>
+              <text x="242" y="151">Padang</text>
+              <text x="242" y="160">Pariaman</text>
+              <text x="292" y="151">Kota</text>
+              <text x="292" y="160">Palu</text>
+              <text x="342" y="151">Magelang</text>
+            </g>
+          </svg>
+          <p class="chart-note">Fig. 1 — kecepatan unduh seluler (Mbps) tujuh daerah prioritas inti. Garis putus-putus adalah median 514 kabupaten/kota. Magelang hampir sama dengan median, tapi penduduknya lebih dari 1,3 juta.</p>
+        </div>
+
+        <div class="project__body">
+          <h3>Peta prioritas peningkatan internet seluler di Indonesia</h3>
+          <p class="oneliner">Daerah mana yang penduduknya banyak tapi internet selulernya masih lemah? Dijawab pakai data speed test Ookla, penduduk dari BPS, dan batas wilayah kabupaten/kota. Daerah yang datanya terlalu sedikit ditandai sendiri dan tidak dimasukkan ke peringkat.</p>
+          <p class="tools-line"><b>Tools:</b> Python, SQL (BigQuery), DuckDB, GeoPandas, Tableau Public</p>
+
+          <details>
+            <summary>Detail teknis</summary>
+            <ul>
+              <li>Datanya dari 514 kabupaten/kota, memakai speed test Ookla Juli 2025 sampai Juni 2026. Hasil tes dicocokkan ke daerahnya lewat BigQuery, lalu kecepatan dirata-ratakan dengan memperhitungkan jumlah tes di tiap lokasi</li>
+              <li>Skor prioritas dihitung dari permintaan (penduduk dan kepadatan) dan kualitas (kecepatan dan latensi). Skornya tinggi kalau penduduknya banyak dan kualitasnya rendah</li>
+              <li>Bobot dicoba diubah di 7 skenario. Urutan secara umum tetap mirip, tapi isi 20 besarnya berubah, hanya 11 sampai 16 dari 20 yang sama. Jadi tujuh daerah yang selalu masuk 20 besar disebut inti, sisanya pendukung</li>
+              <li>Ada dua jenis masalah. Nias Selatan, Timor Tengah Selatan, dan Manggarai kualitasnya rendah, jadi lebih butuh perbaikan cakupan. Magelang, Kota Padang, dan Lampung Tengah kualitasnya sedang tapi penduduknya sangat banyak, jadi lebih butuh tambahan kapasitas</li>
+              <li>12 daerah, kebanyakan di Papua pegunungan, punya hasil tes kurang dari 100. Daerah ini ditandai "data belum memadai". Itu bukan berarti internetnya paling buruk, hanya belum bisa dinilai</li>
+              <li>Keterbatasan: datanya dari semua operator, bukan satu operator saja. Angkanya cocok untuk membandingkan antar daerah, bukan untuk dibaca sebagai kecepatan sebenarnya. Daya beli juga belum masuk</li>
+            </ul>
+          </details>
+
+          <div class="project__links">
+            <a href="https://github.com/PrincessEL-max/telco-internet-gap">GitHub</a>
+            <a href="https://public.tableau.com/app/profile/hafiz.fajar.mustafa/viz/PetaPrioritasInternetIndonesia/Story">Dashboard</a>
+          </div>
+        </div>
+      </article>
+
       <article class="project">
         <div class="project__media">
           <svg viewBox="0 0 400 160" role="img" aria-label="Grafik rata-rata PM2.5 bulanan Jakarta, musim kemarau Mei–Oktober lebih tinggi dari musim hujan">
@@ -235,7 +303,7 @@
               <text x="362" y="152">Okt</text>
             </g>
           </svg>
-          <p class="chart-note">Fig. 1 — rata-rata PM2.5 per bulan, semua stasiun. Musim kemarau (gelap) konsisten lebih tinggi dari musim hujan.</p>
+          <p class="chart-note">Fig. 2 — rata-rata PM2.5 per bulan, semua stasiun. Musim kemarau (gelap) konsisten lebih tinggi dari musim hujan.</p>
         </div>
 
         <div class="project__body">
@@ -278,7 +346,7 @@
               <text x="240" y="152">2 Tahun</text>
             </g>
           </svg>
-          <p class="chart-note">Fig. 2 — tingkat churn menurut tipe kontrak. Pelanggan bulanan berhenti jauh lebih sering dari kontrak jangka panjang.</p>
+          <p class="chart-note">Fig. 3 — tingkat churn menurut tipe kontrak. Pelanggan bulanan berhenti jauh lebih sering dari kontrak jangka panjang.</p>
         </div>
 
         <div class="project__body">
@@ -326,7 +394,7 @@
               </g>
               <text x="200" y="163" font-family="var(--font-body)" font-size="9" fill="var(--ink-soft)" text-anchor="middle">jumlah add-on service</text>
             </svg>
-            <p class="chart-note">Fig. 3 — churn rate turun tajam seiring jumlah add-on, kecuali grup 0 — confounded oleh status internet, bukan loyalitas.</p>
+            <p class="chart-note">Fig. 4 — churn rate turun tajam seiring jumlah add-on, kecuali grup 0 — confounded oleh status internet, bukan loyalitas.</p>
 
             <ul>
               <li>Tiga model dibandingkan (Logistic Regression, Random Forest, Gradient Boosting); ROC-AUC ketiganya nyaris identik (0,845–0,846) — Random Forest dipilih karena F1-score tertinggi</li>
@@ -369,7 +437,7 @@
               <text x="362" y="152">10</text>
             </g>
           </svg>
-          <p class="chart-note">Fig. 4 — akurasi klasifikasi gas per batch (proxy waktu) tanpa koreksi drift: turun tajam lalu berfluktuasi, bukan menurun monoton.</p>
+          <p class="chart-note">Fig. 5 — akurasi klasifikasi gas per batch (proxy waktu) tanpa koreksi drift: turun tajam lalu berfluktuasi, bukan menurun monoton.</p>
         </div>
 
         <div class="project__body">
@@ -397,7 +465,7 @@
                 <text x="255" y="152">Berbasis deviasi</text>
               </g>
             </svg>
-            <p class="chart-note">Fig. 5 — dua kriteria kalibrasi ulang berbeda 5,4×; mengandalkan confidence interval saja bisa membiarkan sensor menyimpang jauh tanpa terdeteksi.</p>
+            <p class="chart-note">Fig. 6 — dua kriteria kalibrasi ulang berbeda 5,4×; mengandalkan confidence interval saja bisa membiarkan sensor menyimpang jauh tanpa terdeteksi.</p>
 
             <ul>
               <li>Task kalibrasi (regresi konsentrasi) ternyata beda kebutuhan dari klasifikasi — CORAL yang berhasil untuk klasifikasi justru merusak performa 4 dari 6 gas saat diterapkan ke regresi, dengan dua mekanisme kegagalan berbeda (keterbatasan rentang data vs distorsi oleh koreksi) yang didiagnosis terpisah</li>
@@ -434,7 +502,7 @@
               <text x="270" y="152">XGBoost</text>
             </g>
           </svg>
-          <p class="chart-note">Fig. 6 — PR-AUC empat pendekatan; SMOTE justru paling rendah, XGBoost menang hanya setelah tuning.</p>
+          <p class="chart-note">Fig. 7 — PR-AUC empat pendekatan; SMOTE justru paling rendah, XGBoost menang hanya setelah tuning.</p>
         </div>
 
         <div class="project__body">
